@@ -14,10 +14,12 @@ ECE382_Lab6
   
   
   As shown in the schematic above, I used the four pins to control the two motors movements. 
-    P2.0 controlled the right motor in reverse
-    P2.1 controlled the right motor forward
-    P2.3 controlled the left motor in reverse
-    P2.5 controlled the left motor forward
+  
+  
+      P2.0 controlled the right motor in reverse
+      P2.1 controlled the right motor forward
+      P2.3 controlled the left motor in reverse
+      P2.5 controlled the left motor forward
   
 
 
