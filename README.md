@@ -10,6 +10,8 @@ ECE382_Lab6
 # Prelab
   Motor requires 12 v, and motor controller chip has 4 5v inputs and 4 12v outputs. I decided to use pins P2.0, P2.1, P2.3 and P2.5 to control the motors. Below is a schematic of how I wired the robot to the MSP430 chip. 
   
+  ![alt text] (https://raw.github.com/CassieMcPeek/ECE382_Lab6/master/Lab6.JPG "Schematic")
+  
   
 
 
