@@ -22,9 +22,30 @@ ECE382_Lab6
       P2.5 controlled the left motor forward
   
 
+I utilized PWM to control the voltage to the pins. I decided to use the reset/set mode for TACCTL1 and the set/reset mode for TACCTL2. Below is the code I determined would work best. I began with Dr. Coulston's code and integrated my designs into that. 
+
+      
+     P2DIR |= BIT2;							// P2.2 is associated with TACCTL1
+     P2SEL |= BIT2;
+
+     P2DIR |= BIT4;							// P2.4 is associated with TACCTL2
+     P2SEL |= BIT4;
+
+     TA1CTL = ID_3 | TASSEL_2 | MC_1;		//set duty cycle and MCLK
+     TA1CCR0 = 100;
+
+     TA1CCR1 = 50;
+     TA1CCTL1 = OUTMOD_7;					// set TACCTL1 to Reset / Set mode
+
+     TA1CCR2 = 50;						// set TACCTL2 to Set / Reset mode
+     TA1CCTL2 = OUTMOD_3;
+
+
+I also knew that the voltage from the regulator is 3.3v. 
 
 # Required Functionality
 
+Required functionality was a little challenging for me, because I didn't fully understand how to utilize the PWM to control the motors. I began with Dr. Coulston's code and tried to implement my own designs into that. 
 
 # A Functionality
 
