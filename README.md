@@ -78,7 +78,30 @@ I demonstrated required functionality on Monday, 24 NOV 2014 at 1500 to Capt Tri
 
 # A Functionality
 
-Once I understood the required functionality, the A functionality was pretty straight forward. 
+Once I understood the required functionality, the A functionality was pretty straight forward. I used the same remote as I did in Lab 5, so I just copied over the header file from that with no changes. For the main file, I kept the same declarations as before, which are shown below.
+
+     WDTCTL = WDTPW|WDTHOLD;                 // stop the watchdog timer
+
+     P2DIR |= BIT2;							// P2.2 is associated with TACCTL1
+     P2SEL |= BIT2;
+
+     P2DIR |= BIT4;							// P2.4 is associated with TACCTL2
+     P2SEL |= BIT4;
+
+     TA1CTL = ID_3 | TASSEL_2 | MC_1;		//set duty cycle and MCLK
+     TA1CCR0 = 100;
+
+     TA1CCR1 = 50;
+     TA1CCTL1 = OUTMOD_7;					// set TACCTL1 to Reset / Set mode
+
+     TA1CCR2 = 50;						// set TACCTL2 to Set / Reset mode
+     TA1CCTL2 = OUTMOD_3;
+     
+
+I also placed the subfunctions that I used in required functionality that controlled the movements at the bottom of the code. The rest was copied over from my Lab5.c file. The only change I needed to make was to call the subfunctions in the while loop to ensure that the remote buttons controlled the movements instead of it being in sequence. 
+
+This code worked right away, but I did run into a few problems while testing. 
+
 
 
 # Conclusion
