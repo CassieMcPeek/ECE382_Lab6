@@ -100,12 +100,17 @@ Once I understood the required functionality, the A functionality was pretty str
 
 I also placed the subfunctions that I used in required functionality that controlled the movements at the bottom of the code. The rest was copied over from my Lab5.c file. The only change I needed to make was to call the subfunctions in the while loop to ensure that the remote buttons controlled the movements instead of it being in sequence. 
 
-This code worked right away, but I did run into a few problems while testing. 
+This code worked right away, but I did run into a few problems while testing. i had trouble with the CH_DW button stopping the movement of the robot. So I instead placed _delay_cycle() statements into the subfunctions so that the robot would stop after so long, wihtout having to press a button. Once I fixed that, the robot moved as different buttons were pressed.
 
+I demonstrated A functionality to Capt Trimble on 25 NOV 2014 at 1330. 
 
 
 # Conclusion
 
+This lab taught me a lot about not only PWM's, but also how the small details can make all the difference. I found that I needed to pay extra attentiona to the details, such as the wiring because if there is anything wrong with that, the whole thing will not work. I also blew a motor chip which then led me to blow 4 fuses which was very frustrating. However, once I replaced the motor control chip and the fuse, it worked just fine. Dr. Coulston also helped me with a problem I encountered where my robot would run properly while connected to the USB, but as soon as I unplugged it, it wouldn't work anymore. This was solved by wiring the rest pin to the 5V source. 
+
 
 # Documentation
+
+C2C Dusty Weisner helped me debug my code in order to get the syntax for the subfunctions correct. He also pointed out that I needed to change my motor control chip in order to stop blowing fuses. 
 
