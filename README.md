@@ -10,7 +10,7 @@ ECE382_Lab6
 # Prelab
   Motor requires 12 v, and motor controller chip has 4 5v inputs and 4 12v outputs. I decided to use pins P2.0, P2.1, P2.3 and P2.5 to control the motors. Below is a schematic of how I wired the robot to the MSP430 chip. 
   
-    ![alt text] (https://raw.github.com/CassieMcPeek/ECE382_Lab6/master/Lab6.jpg "Schematic")
+ ![alt text] (https://raw.github.com/CassieMcPeek/ECE382_Lab6/master/Lab6.jpg "Schematic")
   
   
   As shown in the schematic above, I used the four pins to control the two motors movements. 
@@ -69,7 +69,16 @@ Once I had that working, I figured out how to turn the motors off. I uesd a _del
 
 I tested this code mutliple times to ensure that it did in fact turn both of the motors on in the forward direction and then delayed it for as long as I had defined and then turned them off. Once I was confident in this, I moved on to the motors in the reverse direction. After some testing, I discovered that the movement in the backwards direction was the same code as above, just with the other two pins (P2.0 and P2.3). 
 
+Once I had the motors moving in all directions and stopping, I moved onto implementing those movements in a sequence. I knew that I wanted to utilize a while() loop in order to run the sequence of movements. At first, I attempted to place all lines of code in the while() loop, but that soon became overwhelming and un-organized. C2C Dusty Weisner gave me the idea to create functions below the main code to define the movements of the motors and then call those subfunctions in the while loop. Once I had that idea, it was simple creating seperate functions for each movement and calling them in the while loop. 
+
+The only part I had trouble with was doing a turn >45 degrees and <45 degrees. For this, I simple decresed the _delay_cycles() until the wheels turned less than 45 or greater than 45 degrees. These were placed into the functions below the main code as well. 
+
+I demonstrated required functionality on Monday, 24 NOV 2014 at 1500 to Capt Trimble. 
+
+
 # A Functionality
+
+Once I understood the required functionality, the A functionality was pretty straight forward. 
 
 
 # Conclusion
