@@ -10,7 +10,7 @@ ECE382_Lab6
 # Prelab
   Motor requires 12 v, and motor controller chip has 4 5v inputs and 4 12v outputs. I decided to use pins P2.0, P2.1, P2.3 and P2.5 to control the motors. Below is a schematic of how I wired the robot to the MSP430 chip. 
   
-![alt text] (https://raw.github.com/CassieMcPeek/ECE382_Lab6/master/Lab6.jpg "Schematic")
+    ![alt text] (https://raw.github.com/CassieMcPeek/ECE382_Lab6/master/Lab6.jpg "Schematic")
   
   
   As shown in the schematic above, I used the four pins to control the two motors movements. 
@@ -49,7 +49,25 @@ Required functionality was a little challenging for me, because I didn't fully u
 
 I first wired up the robot to work for the code provided by Dr. Coulston. That took me a few tries, as I forgot to add a capacitor from the 12V source to ground, and also from the 5V source to ground. I also had wired the pin outputs to the wrong motors (i.e. I wired up the output for P2.3 to R BLK instead of L BLK). Once I made those fixes to my wiring, I was able to get the robot to work with Dr. Coulston's code. 
 
-The next challenging part was taking the pieces of Dr. Coulson's code and fitting it to my design. 
+The next challenging part was taking the pieces of Dr. Coulson's code and fitting it to my design. After many attempts to create code that moved my robot, I finally determined that the code below turned the motors on in the forward directions.
+
+     P2DIR |= BIT5;							// Left motor forward
+     P2OUT &= ~BIT5;
+
+     P2DIR |= BIT1;							// Right motor forward
+     P2OUT &= ~BIT1;
+     
+
+Once I had that working, I figured out how to turn the motors off. I uesd a _delay_cycles() statement to leave the motors on for a short period of time before shutting them off with the following code. 
+
+     P2DIR |= BIT5;						// Left motor stop forward
+     P2OUT |= BIT5;
+
+     P2DIR |= BIT1;						// Right motor stop forward
+     P2OUT |= BIT1;
+     
+
+I tested this code mutliple times to ensure that it did in fact turn both of the motors on in the forward direction and then delayed it for as long as I had defined and then turned them off. Once I was confident in this, I moved on to the motors in the reverse direction. After some testing, I discovered that the movement in the backwards direction was the same code as above, just with the other two pins (P2.0 and P2.3). 
 
 # A Functionality
 
